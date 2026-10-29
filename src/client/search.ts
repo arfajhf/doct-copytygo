@@ -5,18 +5,18 @@ export function searchEntries(
 ): SearchEntry[] {
   const terms = query
     .trim()
-    .toLocaleLowerCase("id")
+    .toLocaleLowerCase("en")
     .split(/\s+/)
     .filter(Boolean);
   if (!terms.length) return [];
   return entries
     .map((entry) => {
-      const title = entry.title.toLocaleLowerCase("id"),
-        body = entry.text.toLocaleLowerCase("id");
+      const title = entry.title.toLocaleLowerCase("en"),
+        body = entry.text.toLocaleLowerCase("en");
       const score = terms.every(
         (term) => title.includes(term) || body.includes(term),
       )
-        ? (title === query.trim().toLocaleLowerCase("id") ? 50 : 0) +
+        ? (title === query.trim().toLocaleLowerCase("en") ? 50 : 0) +
           terms.reduce(
             (sum, term) =>
               sum +

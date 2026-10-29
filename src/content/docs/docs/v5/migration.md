@@ -1,9 +1,9 @@
 ---
 title: "Migration"
-description: "Migration untuk CopyTyGo v5.0.0."
+description: "Migration for CopyTyGo v5.0.0."
 ---
 
-CLI dan Studio menggunakan engine migration yang sama: source proyek → AST loader → registry → schema blueprint → SQL sesuai dialect → migration repository.
+The CLI and Studio share the same migration engine: project source → AST loader → registry → schema blueprint → dialect-specific SQL → migration repository.
 
 ## Workflow
 
@@ -13,25 +13,25 @@ ctg migrate:status
 ctg migrate
 ```
 
-Periksa file yang dihasilkan pada `database/migrations/` sebelum menerapkan perubahan schema.
+Review the generated files in `database/migrations/` before applying schema changes.
 
-## Rollback dan operasi destruktif
+## Rollback and destructive operations
 
 ```bash
 ctg migrate:rollback
 ```
 
-`migrate:reset` dan `migrate:fresh` juga tersedia. Keduanya dapat menghapus struktur/data; pahami perubahan dan siapkan backup sebelum digunakan. Dalam produksi, command destruktif membutuhkan flag `--force`. Flag tersebut bukan pengganti review atau backup.
+`migrate:reset` and `migrate:fresh` are also available. Both can remove structures or data; understand the changes and prepare backups before using them. Destructive commands require `--force` in production. This flag does not replace review or backups.
 
-## Verifikasi deployment
+## Deployment verification
 
 ```bash
 ctg db:check
 ctg migrate:status
 ```
 
-Jalankan migration dalam prosedur deployment yang terkontrol sebelum memverifikasi kesehatan aplikasi.
+Run migrations through a controlled deployment procedure before verifying application health.
 
 ---
-Sumber versi `v5.0.0`: [cli/migration.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/migration.go) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
+Versioned sources `v5.0.0`: [cli/migration.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/migration.go) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
 

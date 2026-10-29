@@ -1,9 +1,9 @@
 ---
-title: "Resource generator & keamanan"
-description: "Resource generator & keamanan CopyTyGo v5.0.0; panduan asli upstream."
+title: "Resource generator & security"
+description: "Resource generator & security CopyTyGo v5.0.0; original upstream guide."
 ---
 
-Panduan upstream dipertahankan dalam bahasa aslinya untuk menjaga ketepatan teknis.
+This guide preserves the upstream documentation for technical accuracy.
 
 
 CopyTyGo v5 treats generated REST resources as **private by default**. Earlier generated routes were public until the developer added middleware. This change is intentional and can break old applications that relied on public CRUD endpoints.
@@ -103,4 +103,4 @@ Use this helper when custom policies are necessary. Authentication and authoriza
 Security regression tests cover route middleware dispatch and code generation for browser single/multi, bearer, missing auth and explicit public modes. Release testing must still verify real browser sessions, role changes, CSRF, starter compilation and deployment. This is not a completed external penetration test.
 
 
-Sumber: [RESOURCE_SECURITY.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/RESOURCE_SECURITY.md) (v5.0.0).
+Source: [RESOURCE_SECURITY.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/RESOURCE_SECURITY.md) (v5.0.0).

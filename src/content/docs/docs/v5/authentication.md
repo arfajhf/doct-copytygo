@@ -1,9 +1,9 @@
 ---
 title: "Authentication"
-description: "Authentication CopyTyGo v5.0.0; panduan asli upstream."
+description: "Authentication CopyTyGo v5.0.0; original upstream guide."
 ---
 
-Panduan upstream dipertahankan dalam bahasa aslinya untuk menjaga ketepatan teknis.
+This guide preserves the upstream documentation for technical accuracy.
 
 
 ## Install and run
@@ -101,4 +101,4 @@ Use `single` if that was your original mode. Reinstallation migrates unchanged v
 Customized routes/controllers stop automatic migration before any files are written. Use a fresh throwaway project with the same mode as a reference: copy its `frontend/src/auth/`, `frontend/auth.html`, `frontend/vite.auth.config.ts` and adapt its `routes/auth.go` and `app/auth/web.go` into your custom application. Keep your existing API behavior and custom frontend configuration. Customized old HTML files are retained on disk so you can move their UI to TypeScript; they are no longer used by the new default starter. Customized TypeScript source is preserved on reinstall.
 
 
-Sumber: [AUTHENTICATION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/AUTHENTICATION.md) (v5.0.0).
+Source: [AUTHENTICATION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/AUTHENTICATION.md) (v5.0.0).

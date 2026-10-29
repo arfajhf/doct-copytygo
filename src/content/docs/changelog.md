@@ -1,9 +1,9 @@
 ---
 title: Changelog
-description: Catatan perubahan upstream CopyTyGo, termasuk perubahan unreleased.
+description: Upstream CopyTyGo changes, including unreleased updates.
 ---
 
-Snapshot changelog pada tag `v5.0.0`. Heading **Unreleased** dipertahankan dari upstream dan bukan bukti fitur telah disetujui sebagai rilis. [GitHub Releases](/releases/) adalah sumber metadata publikasi.
+This changelog is a snapshot from tag `v5.0.0`. The **Unreleased** heading is preserved from upstream and does not establish release approval for those features. [GitHub Releases](/releases/) is the source of publication metadata.
 
 
 

@@ -1,11 +1,11 @@
 ---
 title: "Examples"
-description: "Contoh berdasarkan source CopyTyGo v5.0.0."
+description: "Examples based on the CopyTyGo v5.0.0 source."
 ---
 
-## Resource Product
+## Product resource
 
-Contoh alur generator dari README upstream. Jalankan pada proyek yang database dan auth-nya telah dikonfigurasi:
+This generator workflow comes from the upstream README. Run it in a project with its database and authentication configured:
 
 ```bash
 ctg make:resource Product name:string price:decimal stock:integer active:boolean description:text?
@@ -13,11 +13,11 @@ ctg migrate
 ctg dev
 ```
 
-Lihat route yang dihasilkan melalui `ctg route:list`. Resource privat secara default; baca [aturan akses](/docs/v5/resource-generator/). Ini resep dari source, belum diklaim sebagai contoh integrasi yang diuji pada website ini.
+Inspect the generated routes with `ctg route:list`. Resources are private by default; read the [access rules](/docs/v5/resource-generator/). This recipe is based on framework source and has not been tested as an integration example by this website.
 
-## Handler Go
+## Go handler
 
-Cuplikan dari `example/main.go` upstream:
+Excerpt from the upstream `example/main.go`:
 
 ```go
 app.Get("/", func(ctx *core.Context) error {
@@ -25,12 +25,12 @@ app.Get("/", func(ctx *core.Context) error {
 }).Name("home")
 ```
 
-`version` di cuplikan tersebut adalah nilai payload contoh upstream, bukan versi framework. [Baca aplikasi lengkap](https://github.com/arfajhf/copytygo/blob/v5.0.0/example/main.go) untuk import, konfigurasi, dan lifecycle server.
+The `version` value in this excerpt is the upstream example payload, not the framework version. [Read the complete application](https://github.com/arfajhf/copytygo/blob/v5.0.0/example/main.go) for imports, configuration, and the server lifecycle.
 
-## Frontend dan background jobs
+## Frontend and background jobs
 
-- [Client TypeScript](/docs/v5/frontend/)
+- [TypeScript client](/docs/v5/frontend/)
 - [Dispatch named job](/docs/v5/queue/)
-- [Jadwal interval dan cron](/docs/v5/scheduler/)
+- [Interval and cron scheduling](/docs/v5/scheduler/)
 
-Semua contoh merujuk source `v5.0.0`. Pengujian aplikasi end-to-end membutuhkan Go, Node, dan database yang sesuai.
+All examples refer to the `v5.0.0` source. End-to-end application testing requires the appropriate Go and Node versions and a configured database.

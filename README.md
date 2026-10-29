@@ -1,20 +1,22 @@
 # CopyTyGo documentation website
 
-Website dokumentasi **Vite + TypeScript**, terpisah dari framework CopyTyGo. Halaman dihasilkan sebagai HTML statis dari Markdown sebelum Vite membundel CSS dan JavaScript. Tidak memerlukan Astro, Starlight, atau server Go.
+The **Vite + TypeScript** documentation website, maintained separately from the CopyTyGo framework. Markdown is rendered into static HTML before Vite bundles CSS and JavaScript. No Astro, Starlight, or Go server is required.
 
-## Persyaratan
+All public content, navigation, metadata, accessibility labels, and interaction messages are in **English**. Keep new contributions in English for the international developer audience.
 
-- Node.js **20.19+ atau 22.12+**. Node **22.23.1** didukung dan diuji di CI.
-- npm; gunakan `npm ci` agar versi dependency mengikuti lockfile.
+## Requirements
 
-## Menjalankan website
+- Node.js **20.19+ or 22.12+**. Node **22.23.1** is supported and tested in CI.
+- npm; use `npm ci` to install the versions recorded in the lockfile.
+
+## Development
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Buka URL lokal yang dicetak Vite, default `http://localhost:4321`. Perubahan Markdown, metadata rilis, dan asset publik menghasilkan ulang HTML dan memuat ulang halaman. Setelah mengubah generator/config, restart dev server.
+Open the local URL printed by Vite, usually `http://localhost:4321`. Changes to Markdown, release metadata, and public assets regenerate HTML and reload the page. Restart the development server after editing the generator or configuration.
 
 ```bash
 npm run build
@@ -23,41 +25,41 @@ node scripts/check-links.mjs
 npm run preview
 ```
 
-Output produksi ada di **`dist/`**. Seluruh artikel, navigasi, heading, dan metadata sudah ada pada HTML, sehingga tetap dapat dibaca tanpa JavaScript. JavaScript menambahkan pencarian lokal, salin kode, tema, dan menu mobile.
+Production output is written to **`dist/`**. Articles, navigation, headings, and metadata are present in the HTML and remain readable without JavaScript. JavaScript adds local search, code copying, theme switching, and mobile navigation.
 
-## Struktur
+## Project structure
 
 ```text
-src/content/docs/      Artikel Markdown dengan title/description
-src/data/releases.json Snapshot GitHub Releases
-src/site/             Layout HTML, landing page, navigasi, metadata
-src/client/           Interaksi TypeScript dan algoritme pencarian
-src/styles/site.css   Tema dan layout responsive
-scripts/generate.ts   Markdown → HTML, highlighting, search, SEO
-vite.config.ts        Build multipage dan content reload
-public/               Logo asli dan asset statis
-.generated/           Halaman hasil generator (diabaikan Git)
-dist/                 Hasil build produksi (diabaikan Git)
+src/content/docs/       Markdown articles with title/description metadata
+src/data/releases.json GitHub Releases snapshot
+src/site/               HTML layouts, landing page, navigation, metadata
+src/client/             TypeScript interactions and search ranking
+src/styles/site.css     Themes and responsive layouts
+scripts/generate.ts     Markdown → HTML, highlighting, search index, SEO
+vite.config.ts          Multipage build and content reload
+public/                 Original logo and static assets
+.generated/             Generated pages (ignored by Git)
+dist/                   Production output (ignored by Git)
 ```
 
-`npm run dev` dan `npm run build` menjalankan generator otomatis. Tidak perlu menjalankan perintah setup tambahan. Artikel biasa menggunakan `.md`, bukan MDX. Tambah artikel ke `src/content/docs/` dan navigasi di `src/site/content.ts`. Heading menghasilkan permalink; blok kode Go/TypeScript menggunakan Shiki dengan tombol salin. Pencarian tidak memakai layanan eksternal dan bekerja pada dev maupun produksi.
+`npm run dev` and `npm run build` run the generator automatically. No additional setup command is needed. Articles use `.md`, not MDX. Add articles under `src/content/docs/` and navigation entries in `src/site/content.ts`. Headings generate permalinks, and Go/TypeScript code blocks use Shiki with copy buttons. Search runs locally in both development and production without an external service.
 
-## URL produksi dan SEO
+## Production URL and SEO
 
-Tetapkan **`SITE_URL`** ke origin HTTPS resmi saat build, misalnya melalui environment variable hosting. Default development adalah `http://localhost:4321`; ganti sebelum publikasi. Generator menghasilkan canonical URL, Open Graph/Twitter metadata, `sitemap.xml`, `robots.txt`, dan `404.html`.
+Set **`SITE_URL`** to the official HTTPS origin when building, for example through your hosting environment variables. The development default is `http://localhost:4321`; change it before publication. The generator creates canonical URLs, Open Graph/Twitter metadata, `sitemap.xml`, `robots.txt`, and `404.html`. HTML documents declare `lang="en"`.
 
 ## Cloudflare Pages
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Node version: `22.23.1` atau versi baru yang kompatibel
-- Environment: `SITE_URL` = origin resmi
+- Node version: `22.23.1` or a newer compatible version
+- Environment: `SITE_URL` = the official origin
 
-Tanpa adapter atau runtime server. Route `/docs/` memiliki halaman redirect HTML menuju `/docs/v5/`.
+No adapter or server runtime is required. `/docs/` contains an HTML redirect to `/docs/v5/`.
 
 ## VPS / Nginx
 
-Salin isi `dist/` ke document root. Gunakan URL direktori untuk halaman dokumentasi:
+Copy the contents of `dist/` to the document root. Use directory URLs for documentation pages:
 
 ```nginx
 location = /docs { return 301 /docs/v5/; }
@@ -66,18 +68,18 @@ location / { try_files $uri $uri/ =404; }
 error_page 404 /404.html;
 ```
 
-Jangan menambahkan SPA fallback ke `/index.html`: website ini multipage dan sudah memiliki HTML per route.
+Do not add an SPA fallback to `/index.html`: this is a multipage website with an HTML file for each route.
 
-## Rilis dan sumber konten
+## Releases and content sources
 
-Baseline framework: `arfajhf/copytygo`, tag **v5.0.0**, commit `203ce2554bb99fe41000c368a0213c22ec587711`. Logo disalin dari `branding/logo.png`. Panduan authentication, resource security, deployment, dan changelog mempertahankan teks upstream; panduan lain adalah ringkasan Indonesia dengan referensi yang dipin ke source.
+Framework baseline: `arfajhf/copytygo`, tag **v5.0.0**, commit `203ce2554bb99fe41000c368a0213c22ec587711`. The original logo comes from `branding/logo.png`. Authentication, resource security, deployment, and changelog pages preserve upstream text. Other guides are English summaries with references pinned to the source.
 
 ```bash
 npm run releases:sync
 ```
 
-Perintah ini mengambil GitHub Releases, mengecualikan draft/prerelease dan milestone internal v4 dari rekomendasi. Optional `GITHUB_TOKEN` hanya dipakai script Node; jangan memasukkannya ke environment `VITE_*`. Snapshot direview dan di-commit; website tidak membutuhkan token atau akses GitHub saat dibuka.
+This command fetches GitHub Releases, excluding drafts, prereleases, and internal v4 milestones from recommendations. The optional `GITHUB_TOKEN` is used only by the Node script; never place it in `VITE_*` environment variables. Review and commit the snapshot. Visitors do not need a token or GitHub access.
 
-Metadata rekomendasi dapat berubah tanpa mengubah command instalasi yang dipin. Review konten tag baru sebelum memperbarui command dan alias `/docs/`. Pertahankan URL major lama saat menambah `/docs/vN/`.
+Recommendation metadata may change independently of pinned installation commands. Review new release content before updating commands and the `/docs/` alias. Preserve older major-version URLs when adding `/docs/vN/`.
 
-Contoh framework belum dieksekusi terhadap Go/database oleh website ini. Migrasi ke Vite tidak mengubah source framework atau klaim kemampuan v5.
+Framework examples have not been executed against Go and a database by this website. Website changes do not modify framework source or expand the documented v5 capabilities.

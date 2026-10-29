@@ -1,29 +1,29 @@
 ---
-title: "Pengantar CopyTyGo"
-description: "Pengantar CopyTyGo untuk CopyTyGo v5.0.0."
+title: "Introduction to CopyTyGo"
+description: "Introduction to CopyTyGo for CopyTyGo v5.0.0."
 ---
 
-CopyTyGo memadukan backend Go dengan alur frontend TypeScript, CLI `ctg`, dan Studio untuk pengembangan lokal.
+CopyTyGo brings together a Go backend, a TypeScript frontend workflow, the `ctg` CLI, and Studio for local development.
 
-Dokumentasi ini mengacu pada **v5.0.0**, rilis publik stabil pertama. v4.0.6 merupakan milestone internal prapeluncuran.
+This documentation covers **v5.0.0**, the first public stable release. v4.0.6 was an internal prelaunch milestone.
 
-## Alur pengembangan
+## Development workflow
 
-1. [Instal CLI](/docs/v5/installation/).
-2. [Buat aplikasi](/docs/v5/getting-started/) dan pilih MySQL atau PostgreSQL.
-3. Tambahkan [authentication](/docs/v5/authentication/) dan [resource](/docs/v5/resource-generator/).
-4. Jalankan pemeriksaan sebelum [deployment](/docs/v5/deployment/).
+1. [Install the CLI](/docs/v5/installation/).
+2. [Create an application](/docs/v5/getting-started/) and choose MySQL or PostgreSQL.
+3. Add [authentication](/docs/v5/authentication/) and [resources](/docs/v5/resource-generator/).
+4. Run the checks before [deployment](/docs/v5/deployment/).
 
-## Arsitektur
+## Architecture
 
-`core.Application` mengimplementasikan `http.Handler`. Request melewati middleware, router, handler, lalu respons Context. Layanan aplikasi mencakup cache, events, mail, storage, queue, scheduler, dan health.
+`core.Application` implements `http.Handler`. Requests pass through middleware, the router, and a handler before a Context response is returned. Application services include cache, events, mail, storage, queue, scheduler, and health.
 
-Frontend tersedia dalam preset TypeScript, React, Vue, atau API-only. Native Runtime menjalankan aplikasi Go lengkap; Lite Runtime bersifat opt-in untuk pengembangan dengan batasan eksekusi background Go.
+Frontend presets include TypeScript, React, Vue, and API-only. Native Runtime runs the complete Go application; Lite Runtime is an opt-in development mode with limits on background Go execution.
 
-## Batas versi
+## Version boundaries
 
-Perubahan pada branch `main` tidak otomatis menjadi dokumentasi stabil. Lihat [Releases](/releases/) untuk metadata rilis dan [Changelog](/changelog/) untuk catatan upstream.
+Changes on the `main` branch do not automatically become stable documentation. See [Releases](/releases/) for release metadata and [Changelog](/changelog/) for upstream notes.
 
 ---
-Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md).
+Versioned sources `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md).
 

@@ -1,31 +1,31 @@
 ---
 title: "CopyTyGo Studio"
-description: "CopyTyGo Studio untuk CopyTyGo v5.0.0."
+description: "CopyTyGo Studio for CopyTyGo v5.0.0."
 ---
 
-Studio merupakan workspace pengembangan lokal yang dibundel bersama framework.
+Studio is a local development workspace bundled with the framework.
 
 ```bash
 ctg dev
 ctg studio
 ```
 
-Path default: `http://127.0.0.1:8080/__copytygo` (sesuaikan dengan URL yang dicetak CLI).
+Default URL: `http://127.0.0.1:8080/__copytygo` (adjust it to match the URL printed by the CLI).
 
-## Inspector dan generator
+## Inspectors and generators
 
-Studio menyediakan Dashboard, Routes, Models, Resources, Database, Migrations, Auth, Services, Queue, Scheduler, Requests, Errors, Logs, Generator, Health, dan Doctor.
+Studio provides Dashboard, Routes, Models, Resources, Database, Migrations, Auth, Services, Queue, Scheduler, Requests, Errors, Logs, Generator, Health, and Doctor.
 
-CLI dan Studio berbagi engine migration serta generator. Auth inspector hanya mengambil field user yang aman dan tidak memilih password hash.
+The CLI and Studio share migration and generator engines. The Auth inspector only queries safe user fields and never selects password hashes.
 
-## Native dan Lite
+## Native and Lite
 
-Native menjalankan aplikasi lengkap. Lite diaktifkan eksplisit dengan `ctg dev --lite`; eksekusi arbitrary background Go tetap membutuhkan Native.
+Native runs the complete application. Enable Lite explicitly with `ctg dev --lite`; arbitrary background Go execution still requires Native.
 
-## Produksi
+## Production
 
-Studio tidak didaftarkan ketika `APP_ENV=production`. Atur juga `COPYTYGO_STUDIO=false`. Verifikasi `/__copytygo` menghasilkan HTTP 404. Jangan membuat pengecualian reverse proxy untuk mengekspos Studio.
+Studio is not registered when `APP_ENV=production`. Also set `COPYTYGO_STUDIO=false`. Verify that `/__copytygo` returns HTTP 404. Do not expose Studio through reverse-proxy exceptions.
 
 ---
-Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
+Versioned sources `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
 

@@ -6,11 +6,11 @@ import { searchEntries } from "../src/client/search.ts";
 
 test("Markdown route mapping preserves versioned URLs and rejects missing metadata", () => {
   const page = parseDoc(
-    '---\ntitle: "Pengantar"\ndescription: "Go + TypeScript"\n---\n\n## Mulai',
+    '---\ntitle: "Introduction"\ndescription: "Go + TypeScript"\n---\n\n## Start',
     "docs/v5/index.md",
   );
   assert.equal(page.route, "/docs/v5/");
-  assert.equal(page.title, "Pengantar");
+  assert.equal(page.title, "Introduction");
   assert.equal(
     parseDoc("---\ntitle: 404\ndescription: Missing\n---\n", "404.md").route,
     "/404.html",
@@ -19,7 +19,7 @@ test("Markdown route mapping preserves versioned URLs and rejects missing metada
     () => parseDoc("# No metadata", "missing.md"),
     /Missing metadata/,
   );
-  assert.equal(slugify("Instal CLI v5.0.0"), "instal-cli-v500");
+  assert.equal(slugify("Install CLI v5.0.0"), "install-cli-v500");
 });
 test("search ranks titles, is case-insensitive, and requires all query words", () => {
   const entries = [
@@ -41,7 +41,9 @@ test("search ranks titles, is case-insensitive, and requires all query words", (
 });
 test("production HTML is prerendered, highlighted, version-pinned, and has canonical metadata", async () => {
   const html = await readFile("dist/docs/v5/installation/index.html", "utf8");
-  assert.match(html, /<h1>Instalasi<\/h1>/);
+  assert.match(html, /<h1>Installation<\/h1>/);
+  assert.match(html, /<html lang="en"/);
+  assert.match(html, /aria-label="Search documentation"/);
   assert.match(
     html.replace(/<[^>]*>/g, ""),
     /go install github.com\/arfajhf\/copytygo\/v5\/cmd\/ctg@v5\.0\.0/,

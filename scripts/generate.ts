@@ -51,7 +51,7 @@ export async function generateSite() {
       themes: { light: "github-light", dark: "github-dark" },
       defaultColor: false,
     });
-    return `<div class="code-block"><div class="code-toolbar"><span>${e(label)}</span><button class="copy-code" type="button" aria-label="Salin kode ${e(label)}">Salin</button></div>${html}</div>`;
+    return `<div class="code-block"><div class="code-toolbar"><span>${e(label)}</span><button class="copy-code" type="button" aria-label="Copy code ${e(label)}">Copy</button></div>${html}</div>`;
   }
   const pages = await loadDocs(path.join(root, "src/content/docs"));
   await mkdir(path.join(output, "public"), { recursive: true });
@@ -82,7 +82,7 @@ export async function generateSite() {
           ids.set(slug, count + 1);
           const id = count ? `${slug}-${count}` : slug;
           headings.push({ id, text: title, depth: token.depth });
-          return `<h${token.depth} id="${id}">${this.parser.parseInline(token.tokens)}<a class="heading-anchor" href="#${id}" aria-label="Tautan bagian ${e(title)}">#</a></h${token.depth}>`;
+          return `<h${token.depth} id="${id}">${this.parser.parseInline(token.tokens)}<a class="heading-anchor" href="#${id}" aria-label="Link to section ${e(title)}">#</a></h${token.depth}>`;
         },
         table(token: Tokens.Table) {
           return `<div class="table-scroll">${renderTable(token)}</div>`;
@@ -126,7 +126,7 @@ export async function generateSite() {
   const home = shell({
     title: "Go further. Build together.",
     description:
-      "CopyTyGo, framework full-stack Go dan TypeScript. Dokumentasi, CLI, authentication, database, background jobs, dan Studio.",
+      "CopyTyGo is a full-stack Go and TypeScript framework. Explore documentation, the CLI, authentication, databases, background jobs, and Studio.",
     route: "/",
     body: landingContent(code),
     home: true,
@@ -139,13 +139,13 @@ export async function generateSite() {
     shell({
       title: "Releases",
       description:
-        "Versi stabil dan riwayat rilis CopyTyGo dari GitHub Releases.",
+        "Stable versions and CopyTyGo release history from GitHub Releases.",
       route: "/releases/",
       body: releases,
       site,
       headings: [
-        { id: "riwayat-rilis", text: "Riwayat rilis", depth: 2 },
-        { id: "dokumentasi-versi", text: "Dokumentasi versi", depth: 2 },
+        { id: "release-history", text: "Release history", depth: 2 },
+        { id: "versioned-documentation", text: "Versioned documentation", depth: 2 },
       ],
     }),
   );
@@ -156,7 +156,7 @@ export async function generateSite() {
   });
   await write(
     path.join(output, "docs/index.html"),
-    `<!doctype html><html lang="id"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/docs/v5/"><meta name="robots" content="noindex"><title>Dokumentasi CopyTyGo</title><link rel="canonical" href="${new URL("/docs/v5/", site)}"></head><body><a href="/docs/v5/">Buka dokumentasi v5</a></body></html>`,
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/docs/v5/"><meta name="robots" content="noindex"><title>CopyTyGo Documentation</title><link rel="canonical" href="${new URL("/docs/v5/", site)}"></head><body><a href="/docs/v5/">Open the v5 documentation</a></body></html>`,
   );
   await write(
     path.join(output, "client.ts"),

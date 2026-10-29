@@ -1,17 +1,17 @@
 ---
 title: "Queue"
-description: "Queue untuk CopyTyGo v5.0.0."
+description: "Queue for CopyTyGo v5.0.0."
 ---
 
 ## Driver
 
-| Driver | Perilaku |
+| Driver | Behavior |
 | --- | --- |
-| `sync` | Eksekusi named job langsung |
-| `memory` | Worker dalam proses, retry/backoff, delayed dispatch |
-| `database` | Job persisten di MySQL/PostgreSQL, reservation, retry, failed jobs |
+| `sync` | Executes named jobs immediately |
+| `memory` | In-process workers, retries/backoff, delayed dispatch |
+| `database` | Persistent MySQL/PostgreSQL jobs, reservation, retries, failed jobs |
 
-Default proyek:
+Project defaults:
 
 ```dotenv
 QUEUE_DRIVER=memory
@@ -20,7 +20,7 @@ QUEUE_POLL_SECONDS=1
 QUEUE_BACKOFF_SECONDS=1
 ```
 
-Gunakan driver `database` untuk pekerjaan produksi yang harus bertahan setelah restart.
+Use the `database` driver for production jobs that must survive application restarts.
 
 ## Named job
 
@@ -28,7 +28,7 @@ Gunakan driver `database` untuk pekerjaan produksi yang harus bertahan setelah r
 ctg make:job SendWelcomeEmail
 ```
 
-Job bernama didaftarkan pada registry proyek. Dispatch dari kode aplikasi dengan context yang tersedia:
+Named jobs are registered in the project registry. Dispatch them from application code using an available context:
 
 ```go
 queue.DispatchNamed(ctx, "SendWelcomeEmail", queue.Payload{
@@ -36,8 +36,8 @@ queue.DispatchNamed(ctx, "SendWelcomeEmail", queue.Payload{
 })
 ```
 
-Import package `github.com/arfajhf/copytygo/v5/queue`. Delayed jobs menggunakan `queue.DispatchOptions`. Eksekusi arbitrary Go background job membutuhkan Native Runtime; Lite mempunyai batasan yang dijelaskan upstream.
+Import `github.com/arfajhf/copytygo/v5/queue`. Delayed jobs use `queue.DispatchOptions`. Executing arbitrary Go background jobs requires Native Runtime; Lite has the limits described upstream.
 
 ---
-Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [queue/queue.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/queue/queue.go).
+Versioned sources `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [queue/queue.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/queue/queue.go).
 

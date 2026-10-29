@@ -1,15 +1,15 @@
 ---
 title: "Frontend"
-description: "Frontend untuk CopyTyGo v5.0.0."
+description: "Frontend for CopyTyGo v5.0.0."
 ---
 
-## Pilih preset
+## Choose a preset
 
-Installer mendukung **TypeScript + Vite**, **React + Vite**, **Vue + Vite**, atau **API-only**. `ctg dev` menjalankan Go dan Vite; buka origin aplikasi Go agar halaman frontend dan API menggunakan origin yang sama.
+The installer supports **TypeScript + Vite**, **React + Vite**, **Vue + Vite**, and **API-only**. `ctg dev` starts Go and Vite; open the Go application origin so the frontend and API share the same origin.
 
-## Client TypeScript
+## TypeScript client
 
-Client upstream `frontend/client.ts` menyediakan token bearer, CSRF cookie, dan parsing respons JSON. Berikut cuplikan metode asli:
+The upstream `frontend/client.ts` client handles bearer tokens, the CSRF cookie, and JSON response parsing. These methods are taken from the original implementation:
 
 ```typescript
 setToken(token: string) {
@@ -21,15 +21,15 @@ get<T>(path: string) {
 }
 ```
 
-Metode di atas berada di dalam class `CopyTyGoClient`; ini cuplikan referensi, bukan file mandiri. Lihat file sumber untuk implementasi lengkap dan penempatan client pada starter.
+These methods belong to the `CopyTyGoClient` class. This is a reference excerpt, not a standalone file. See the source for the complete implementation and client placement in the starter.
 
-## Asset publik
+## Public assets
 
-Simpan asset di `frontend/public/`. File `frontend/public/images/banner.png` diakses melalui `/images/banner.png`. Logo starter berada di `/logo.png`.
+Store assets in `frontend/public/`. Access `frontend/public/images/banner.png` at `/images/banner.png`. The starter logo is available at `/logo.png`.
 
 ## Authentication UI
 
-Edit `frontend/src/auth/views.ts`, `main.ts`, `api.ts`, dan `style.css`. Auth mempunyai entry Vite terpisah, termasuk pada preset React/Vue. Lihat [authentication](/docs/v5/authentication/).
+Edit `frontend/src/auth/views.ts`, `main.ts`, `api.ts`, and `style.css`. Authentication has a separate Vite entry, including in React/Vue presets. See [authentication](/docs/v5/authentication/).
 
 ## Build
 
@@ -37,8 +37,8 @@ Edit `frontend/src/auth/views.ts`, `main.ts`, `api.ts`, dan `style.css`. Auth me
 ctg build
 ```
 
-Deploy seluruh direktori `build/` termasuk frontend hasil kompilasi. Node.js diperlukan saat development/build, tidak diperlukan pada server produksi.
+Deploy the entire `build/` directory, including the compiled frontend. Node.js is required for development and builds, but not on the production server.
 
 ---
-Sumber versi `v5.0.0`: [frontend/client.ts](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/frontend/client.ts) · [docs/AUTHENTICATION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/AUTHENTICATION.md) · [docs/PUBLIC_ASSETS.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PUBLIC_ASSETS.md).
+Versioned sources `v5.0.0`: [frontend/client.ts](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/frontend/client.ts) · [docs/AUTHENTICATION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/AUTHENTICATION.md) · [docs/PUBLIC_ASSETS.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PUBLIC_ASSETS.md).
 

@@ -1,9 +1,9 @@
 ---
-title: "Deployment aplikasi"
-description: "Deployment aplikasi CopyTyGo v5.0.0; panduan asli upstream."
+title: "Application deployment"
+description: "Application deployment CopyTyGo v5.0.0; original upstream guide."
 ---
 
-Panduan upstream dipertahankan dalam bahasa aslinya untuk menjaga ketepatan teknis.
+This guide preserves the upstream documentation for technical accuracy.
 
 
 CopyTyGo v5 builds on the production foundation from v4 with application services, durable queues, runtime health, encrypted sessions, and a development-only Studio.
@@ -235,4 +235,4 @@ Then verify:
 - graceful shutdown completes
 
 
-Sumber: [PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md) (v5.0.0).
+Source: [PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md) (v5.0.0).

@@ -73,10 +73,10 @@ export async function loadDocs(dir: string): Promise<DocPage[]> {
 }
 export const navigation = [
   {
-    title: "Mulai di sini",
+    title: "Start here",
     pages: [
-      ["Pengantar", "/docs/v5/"],
-      ["Instalasi", "/docs/v5/installation/"],
+      ["Introduction", "/docs/v5/"],
+      ["Installation", "/docs/v5/installation/"],
       ["Getting Started", "/docs/v5/getting-started/"],
     ],
   },
@@ -96,7 +96,7 @@ export const navigation = [
     ],
   },
   {
-    title: "Ekosistem",
+    title: "Ecosystem",
     pages: [
       ["Examples", "/examples/"],
       ["Releases", "/releases/"],

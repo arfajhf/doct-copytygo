@@ -12,7 +12,7 @@ menu?.addEventListener("click", () => {
   menu.setAttribute("aria-expanded", String(open));
   menu.setAttribute(
     "aria-label",
-    open ? "Tutup menu dokumentasi" : "Buka menu dokumentasi",
+    open ? "Close documentation menu" : "Open documentation menu",
   );
   sidebar?.classList.toggle("is-open", open);
 });
@@ -33,7 +33,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>(".copy-code"))
       .closest(".code-block")
       ?.querySelector("code")?.textContent;
     if (!text) return;
-    const label = button.getAttribute("aria-label") || "Salin kode";
+    const label = button.getAttribute("aria-label") || "Copy code";
     try {
       // Synchronous copy keeps user activation in embedded browsers. The async API
       // remains a fallback for browsers that no longer implement execCommand.
@@ -51,14 +51,14 @@ for (const button of document.querySelectorAll<HTMLButtonElement>(".copy-code"))
         button.focus();
       }
       if (!copied) await navigator.clipboard.writeText(text);
-      button.textContent = "Tersalin ✓";
-      button.setAttribute("aria-label", "Kode tersalin");
+      button.textContent = "Copied ✓";
+      button.setAttribute("aria-label", "Code copied");
     } catch {
-      button.textContent = "Gagal menyalin";
-      button.setAttribute("aria-label", "Gagal menyalin kode");
+      button.textContent = "Copy failed";
+      button.setAttribute("aria-label", "Failed to copy code");
     }
     setTimeout(() => {
-      button.textContent = "Salin";
+      button.textContent = "Copy";
       button.setAttribute("aria-label", label);
     }, 2500);
   });
@@ -86,19 +86,19 @@ async function loadIndex() {
   await loading;
 }
 async function renderSearch() {
-  status.textContent = "Memuat pencarian…";
+  status.textContent = "Loading search…";
   try {
     await loadIndex();
     results.replaceChildren();
     const query = input.value.trim();
     if (!query) {
-      status.textContent = "Ketik untuk mencari dokumentasi.";
+      status.textContent = "Type to search the documentation.";
       return;
     }
     const matches = searchEntries(entries!, query);
     status.textContent = matches.length
-      ? `${matches.length} hasil untuk “${query}”`
-      : "Tidak ada hasil. Coba kata lain.";
+      ? `${matches.length} result${matches.length === 1 ? "" : "s"} for “${query}”`
+      : "No results found. Try another search term.";
     for (const entry of matches) {
       const item = document.createElement("li"),
         link = document.createElement("a"),
@@ -107,8 +107,8 @@ async function renderSearch() {
       link.href = entry.route;
       title.textContent = entry.title;
       const position = entry.text
-        .toLocaleLowerCase("id")
-        .indexOf(query.toLocaleLowerCase("id").split(/\s+/)[0]);
+        .toLocaleLowerCase("en")
+        .indexOf(query.toLocaleLowerCase("en").split(/\s+/)[0]);
       excerpt.textContent =
         (position > 35 ? "…" : "") +
         entry.text.slice(
@@ -121,7 +121,7 @@ async function renderSearch() {
       results.append(item);
     }
   } catch {
-    status.textContent = "Pencarian gagal dimuat. Coba tutup dan buka kembali.";
+    status.textContent = "Search could not be loaded. Close and reopen the search dialog to try again.";
   }
 }
 function openSearch() {

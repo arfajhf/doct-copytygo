@@ -1,13 +1,13 @@
 ---
 title: "Scheduler"
-description: "Scheduler untuk CopyTyGo v5.0.0."
+description: "Scheduler for CopyTyGo v5.0.0."
 ---
 
-Scheduler mendukung interval tetap, `EveryMinute`, `Hourly`, `Daily`, dan ekspresi cron lima field.
+The scheduler supports fixed intervals, `EveryMinute`, `Hourly`, `Daily`, and five-field cron expressions.
 
 ## Interval
 
-Cuplikan registrasi dari README upstream:
+Registration excerpt from the upstream README:
 
 ```go
 scheduler.Default.Hourly("reports", func(ctx context.Context) error {
@@ -27,10 +27,10 @@ scheduler.Default.Cron(
 )
 ```
 
-Cuplikan memerlukan import `context` dan `github.com/arfajhf/copytygo/v5/scheduler`; tempatkan pada lifecycle aplikasi Anda. Callback di atas belum melakukan pekerjaan bisnis.
+These excerpts require the `context` and `github.com/arfajhf/copytygo/v5/scheduler` imports. Register them within your application lifecycle. The callbacks above do not implement any business logic yet.
 
-Runtime melacak next run, last run, run count, dan last error. Studio menyediakan inspector scheduler. Shutdown aplikasi membatalkan context background dan menghentikan worker. Jangan mengasumsikan koordinasi lintas instance atau exactly-once execution tanpa implementasi tambahan.
+The runtime tracks the next run, last run, run count, and last error. Studio provides a scheduler inspector. Application shutdown cancels the background context and stops workers. Do not assume cross-instance coordination or exactly-once execution without additional implementation.
 
 ---
-Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [scheduler/scheduler.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/scheduler/scheduler.go).
+Versioned sources `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [scheduler/scheduler.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/scheduler/scheduler.go).
 

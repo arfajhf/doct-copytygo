@@ -1,26 +1,26 @@
 ---
 title: "CLI"
-description: "CLI untuk CopyTyGo v5.0.0."
+description: "CLI for CopyTyGo v5.0.0."
 ---
 
-Jalankan command dari direktori proyek yang dihasilkan.
+Run commands from the generated project directory.
 
-| Command | Fungsi |
+| Command | Purpose |
 | --- | --- |
-| `ctg new` | Installer interaktif |
-| `ctg new toko-online` | Membuat proyek bernama |
+| `ctg new` | Interactive installer |
+| `ctg new online-store` | Creates a named project |
 | `ctg dev` | Native Go + Vite |
-| `ctg dev --build` | Native dengan binary lokal proyek |
+| `ctg dev --build` | Native Runtime with a project-local binary |
 | `ctg dev --lite` | Lite Runtime opt-in |
-| `ctg build` | Build aplikasi dan frontend |
-| `ctg doctor` | Diagnostik proyek |
-| `ctg doctor --db --production` | Pemeriksaan produksi |
-| `ctg route:list` | Daftar route |
-| `ctg open` | Membuka aplikasi |
-| `ctg studio` | Membuka Studio |
-| `ctg key:generate` | Membuat application key |
-| `ctg env:format` | Format kelompok dotenv |
-| `ctg resource:sync` | Sinkronisasi proteksi resource |
+| `ctg build` | Builds the application and frontend |
+| `ctg doctor` | Project diagnostics |
+| `ctg doctor --db --production` | Production checks |
+| `ctg route:list` | Lists routes |
+| `ctg open` | Opens the application |
+| `ctg studio` | Opens Studio |
+| `ctg key:generate` | Generates an application key |
+| `ctg env:format` | Formats dotenv setting groups |
+| `ctg resource:sync` | Synchronizes resource protection |
 
 ## Generator
 
@@ -31,10 +31,10 @@ ctg make:migration create_products_table
 ctg make:job SendWelcomeEmail
 ```
 
-Generator lain: `make:middleware`, `make:service`, `make:listener`, `make:seeder`, `make:factory`, dan `make:mail`.
+Other generators include `make:middleware`, `make:service`, `make:listener`, `make:seeder`, `make:factory`, and `make:mail`.
 
-Baca [resource generator](/docs/v5/resource-generator/) dan [migration](/docs/v5/migration/) sebelum menjalankan command yang memodifikasi aplikasi.
+Read the [resource generator](/docs/v5/resource-generator/) and [migration](/docs/v5/migration/) guides before running commands that modify your application.
 
 ---
-Sumber versi `v5.0.0`: [cli/cli.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/cli.go) · [cli/commands.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/commands.go) · [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md).
+Versioned sources `v5.0.0`: [cli/cli.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/cli.go) · [cli/commands.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/cli/commands.go) · [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md).
 

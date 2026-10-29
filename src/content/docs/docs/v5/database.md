@@ -1,11 +1,11 @@
 ---
 title: "Database"
-description: "Database untuk CopyTyGo v5.0.0."
+description: "Database for CopyTyGo v5.0.0."
 ---
 
-CopyTyGo mendukung **MySQL dan PostgreSQL** melalui `database/sql`. Query builder memvalidasi identifier tabel, kolom, dan operator yang didukung.
+CopyTyGo supports **MySQL and PostgreSQL** through `database/sql`. The query builder validates table and column identifiers and supported operators.
 
-## Koneksi
+## Connection
 
 ```dotenv
 DB_DRIVER=mysql
@@ -21,19 +21,19 @@ ctg db:check
 ctg migrate:status
 ```
 
-Untuk PostgreSQL, pilih driver melalui installer dan sesuaikan koneksi dengan database Anda.
+For PostgreSQL, select the driver in the installer and configure the connection for your database.
 
-## Model dan resource
+## Models and resources
 
-Alur data: handler → Context → `database.Resource` / `model.Model` → query builder → database. Relasi yang tersedia: `HasOne`, `HasMany`, `BelongsTo`. Framework juga menyediakan transaksi, seeders, dan factories.
+Data flow: handler → Context → `database.Resource` / `model.Model` → query builder → database. Relationship helpers include `HasOne`, `HasMany`, and `BelongsTo`. The framework also provides transactions, seeders, and factories.
 
 ```bash
 ctg make:resource Product name:string price:decimal stock:integer active:boolean description:text?
 ```
 
-Generator membuat model, controller berbasis database, migration, validation, REST routes, timestamps, dan soft deletes. Resource privat secara default; pasang auth dan baca [keamanan resource](/docs/v5/resource-generator/).
+The generator creates a model, database-backed controller, migration, validation, REST routes, timestamps, and soft deletes. Resources are private by default; install authentication and read the [resource security guide](/docs/v5/resource-generator/).
 
-## Query daftar resource
+## Resource list queries
 
 ```text
 /products?page=2&per_page=20
@@ -42,8 +42,8 @@ Generator membuat model, controller berbasis database, migration, validation, RE
 /products?filter[stock]=10
 ```
 
-Search, filter, dan sort menggunakan allowlist yang dihasilkan. Jangan menganggap semua kolom otomatis dapat di-query.
+Search, filter, and sort use generated allowlists. Do not assume every column can be queried automatically.
 
 ---
-Sumber versi `v5.0.0`: [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md) · [database/resource.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/database/resource.go) · [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md).
+Versioned sources `v5.0.0`: [docs/ARCHITECTURE.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/ARCHITECTURE.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md) · [database/resource.go](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/database/resource.go) · [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md).
 
