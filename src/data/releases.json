@@ -1,0 +1,78 @@
+{
+  "recommended": "v5.0.0",
+  "checkedAt": "2026-10-29",
+  "releases": [
+    {
+      "tag": "v5.0.0",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v5.0.0",
+      "publishedAt": "2026-10-29T10:21:06Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.6",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.6",
+      "publishedAt": "2026-10-08T06:58:11Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.5",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.5",
+      "publishedAt": "2026-10-07T18:32:12Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.4",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.4",
+      "publishedAt": "2026-10-07T15:54:51Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.3",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.3",
+      "publishedAt": "2026-10-07T14:40:36Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.2",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.2",
+      "publishedAt": "2026-10-07T14:00:33Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.1",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.1",
+      "publishedAt": "2026-10-07T11:17:56Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v4.0.0",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v4.0.0",
+      "publishedAt": "2026-10-07T09:47:28Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v3.0.0",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v3.0.0",
+      "publishedAt": "2026-10-07T03:53:01Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v3.0.0-rc.1",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v3.0.0-rc.1",
+      "publishedAt": "2026-10-06T14:30:55Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v2.0.0",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v2.0.0",
+      "publishedAt": "2026-10-06T11:02:41Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v1.0.0",
+      "url": "https://github.com/arfajhf/copytygo/releases/tag/v1.0.0",
+      "publishedAt": "2026-10-05T15:44:01Z",
+      "prerelease": false
+    }
+  ]
+}
