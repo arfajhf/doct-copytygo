@@ -1,5 +1,0 @@
----
-import DefaultHeader from '@astrojs/starlight/components/Header.astro';
-import versions from '../data/releases.json';
----
-<div class="header-wrap"><DefaultHeader><slot /></DefaultHeader><details class="versions"><summary>{versions.recommended || 'v5.0.0'} <span aria-hidden="true">⌄</span></summary><div><a href="/docs/v5/">v5 · Dokumentasi</a><a href="/releases/">Semua rilis ↗</a><small>Rekomendasi dari GitHub Releases</small></div></details></div>

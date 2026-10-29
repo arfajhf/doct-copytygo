@@ -49,7 +49,7 @@ ctg route:list
 ctg build
 ```
 
-Build aplikasi menghasilkan binary native dan asset frontend. Website dokumentasi yang sedang Anda baca mempunyai proses build Astro terpisah.
+Build aplikasi menghasilkan binary native dan asset frontend. Website dokumentasi yang sedang Anda baca mempunyai proses build Vite + TypeScript terpisah.
 
 ---
 Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/INDEX.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/INDEX.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
