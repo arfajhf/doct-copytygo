@@ -1,0 +1,56 @@
+---
+title: "Getting Started"
+description: "Getting Started untuk CopyTyGo v5.0.0."
+---
+
+## 1. Buat proyek
+
+```bash
+ctg new toko-online
+cd toko-online
+```
+
+Gunakan `ctg new` tanpa nama untuk installer interaktif. Pilih database serta preset frontend sesuai kebutuhan.
+
+## 2. Konfigurasi database
+
+Edit `.env` dengan kredensial lokal Anda. Contoh MySQL:
+
+```dotenv
+DB_DRIVER=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=app
+DB_USERNAME=app
+DB_PASSWORD=your-local-password
+```
+
+```bash
+ctg key:generate
+ctg db:check
+ctg migrate
+```
+
+## 3. Jalankan aplikasi
+
+```bash
+ctg doctor
+ctg dev
+```
+
+Buka URL aplikasi yang dicetak CLI (default `http://127.0.0.1:8080`). Untuk frontend, `ctg dev` menjalankan Vite bersama aplikasi Go. Perubahan TypeScript dimuat ulang oleh Vite; restart setelah perubahan Go.
+
+## 4. Tambahkan fitur
+
+[Pasang auth](/docs/v5/authentication/) sebelum membuat resource privat. Jelajahi [Studio](/docs/v5/studio/) melalui `ctg studio`.
+
+```bash
+ctg route:list
+ctg build
+```
+
+Build aplikasi menghasilkan binary native dan asset frontend. Website dokumentasi yang sedang Anda baca mempunyai proses build Astro terpisah.
+
+---
+Sumber versi `v5.0.0`: [README.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/README.md) · [docs/INDEX.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/INDEX.md) · [docs/PRODUCTION.md](https://github.com/arfajhf/copytygo/blob/203ce2554bb99fe41000c368a0213c22ec587711/docs/PRODUCTION.md).
+
