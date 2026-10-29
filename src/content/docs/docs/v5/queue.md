@@ -1,6 +1,6 @@
 ---
 title: "Queue"
-description: "Queue for CopyTyGo v5.0.0."
+description: "Configure CopyTyGo sync, memory, and database queues. Generate named jobs, dispatch payloads, and understand persistence, retries, and runtime limits."
 ---
 
 ## Driver

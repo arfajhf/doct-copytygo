@@ -1,6 +1,6 @@
 ---
 title: "Introduction to CopyTyGo"
-description: "Introduction to CopyTyGo for CopyTyGo v5.0.0."
+description: "Explore CopyTyGo v5, a full-stack Go and TypeScript framework with CLI tooling, authentication, databases, background jobs, and a local development Studio."
 ---
 
 CopyTyGo brings together a Go backend, a TypeScript frontend workflow, the `ctg` CLI, and Studio for local development.

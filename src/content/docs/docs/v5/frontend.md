@@ -1,6 +1,6 @@
 ---
 title: "Frontend"
-description: "Frontend for CopyTyGo v5.0.0."
+description: "Develop CopyTyGo frontends with TypeScript, React, Vue, and Vite. Learn about the API client, authentication UI, public assets, and production builds."
 ---
 
 ## Choose a preset

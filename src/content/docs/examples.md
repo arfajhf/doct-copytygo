@@ -1,6 +1,6 @@
 ---
 title: "Examples"
-description: "Examples based on the CopyTyGo v5.0.0 source."
+description: "Explore source-based CopyTyGo examples for resource generation, Go HTTP handlers, TypeScript clients, queued jobs, and scheduled tasks."
 ---
 
 ## Product resource
