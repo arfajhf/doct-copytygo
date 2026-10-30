@@ -1,6 +1,6 @@
 ---
 title: "CopyTyGo Studio"
-description: "CopyTyGo Studio for CopyTyGo v5.0.0."
+description: "Explore CopyTyGo Studio for local route, database, migration, queue, scheduler, and health inspection, with visual generators and production restrictions."
 ---
 
 Studio is a local development workspace bundled with the framework.

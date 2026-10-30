@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Installation for CopyTyGo v5.0.0."
+description: "Install the CopyTyGo v5 CLI, check Go and Node.js requirements, create your first project, and find platform guidance for Windows, macOS, Linux, and WSL."
 ---
 
 ## Requirements

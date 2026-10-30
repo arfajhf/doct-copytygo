@@ -20,6 +20,7 @@ Open the local URL printed by Vite, usually `http://localhost:4321`. Changes to 
 
 ```bash
 npm run build
+npm run seo:check
 npm test
 node scripts/check-links.mjs
 npm run preview
@@ -38,7 +39,7 @@ src/styles/site.css     Themes and responsive layouts
 scripts/generate.ts     Markdown → HTML, highlighting, search index, SEO
 vite.config.ts          Multipage build and content reload
 public/                 Original logo and static assets
-.generated/             Generated pages (ignored by Git)
+.generated/             Separate dev/build HTML directories (ignored by Git)
 dist/                   Production output (ignored by Git)
 ```
 
@@ -46,14 +47,20 @@ dist/                   Production output (ignored by Git)
 
 ## Production URL and SEO
 
-Set **`SITE_URL`** to the official HTTPS origin when building, for example through your hosting environment variables. The development default is `http://localhost:4321`; change it before publication. The generator creates canonical URLs, Open Graph/Twitter metadata, `sitemap.xml`, `robots.txt`, and `404.html`. HTML documents declare `lang="en"`.
+The official canonical origin is **https://copytygo.org**. Production builds use it by default. Every page receives a descriptive title, unique description, canonical URL, Open Graph/Twitter large-image metadata, and JSON-LD. A shared 1200 × 630 image is included at `/og-image.png`. Documentation breadcrumbs are visible in HTML and reflected in structured data.
+
+`npm run build` includes an SEO audit. `npm run seo:check` additionally requires an indexable production artifact. Local development is always noindex. For hosting previews set `SITE_INDEXABLE=false`; non-official origins and non-production Cloudflare branches also default to noindex. Do not deploy preview artifacts to the official domain—rebuild for production first.
+
+Read [the launch SEO guide](docs/LAUNCH_SEO.md) for canonical redirects, indexing, sitemap submission, live checks, and Search Console. It distinguishes artifact validation from checks that require the live domain. No ranking, Lighthouse score, rich results, or indexing is guaranteed.
 
 ## Cloudflare Pages
 
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node version: `22.23.1` or a newer compatible version
-- Environment: `SITE_URL` = the official origin
+- Production origin: `https://copytygo.org` (default)
+- Preview environment: `SITE_INDEXABLE=false`
+- Production branch: `main`; set `SITE_PRODUCTION_BRANCH` if different
 
 No adapter or server runtime is required. `/docs/` contains an HTML redirect to `/docs/v5/`.
 

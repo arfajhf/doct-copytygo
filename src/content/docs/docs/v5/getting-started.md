@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-description: "Getting Started for CopyTyGo v5.0.0."
+description: "Build your first CopyTyGo application: create a project, configure MySQL or PostgreSQL, run migrations, and start the Go and TypeScript development workflow."
 ---
 
 ## 1. Create a project

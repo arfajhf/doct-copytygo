@@ -1,6 +1,6 @@
 ---
 title: "Scheduler"
-description: "Scheduler for CopyTyGo v5.0.0."
+description: "Schedule CopyTyGo background tasks with fixed intervals or five-field cron expressions, and inspect runtime state through the local Studio."
 ---
 
 The scheduler supports fixed intervals, `EveryMinute`, `Hourly`, `Daily`, and five-field cron expressions.

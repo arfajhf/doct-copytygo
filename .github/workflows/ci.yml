@@ -14,7 +14,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        env:
-          SITE_URL: https://example.test
+      - run: node --import tsx scripts/generate.ts --noindex
+      - run: npm run seo:check
       - run: npm test
       - run: node scripts/check-links.mjs

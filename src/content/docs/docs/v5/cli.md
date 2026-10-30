@@ -1,6 +1,6 @@
 ---
 title: "CLI"
-description: "CLI for CopyTyGo v5.0.0."
+description: "Learn the CopyTyGo ctg CLI commands for project creation, local development, code generation, migrations, diagnostics, and production builds."
 ---
 
 Run commands from the generated project directory.

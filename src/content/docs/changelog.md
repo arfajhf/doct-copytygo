@@ -1,6 +1,6 @@
 ---
 title: Changelog
-description: Upstream CopyTyGo changes, including unreleased updates.
+description: "Read the upstream CopyTyGo changelog, including v5 preparation and historical v4 changes, with links to published GitHub Releases."
 ---
 
 This changelog is a snapshot from tag `v5.0.0`. The **Unreleased** heading is preserved from upstream and does not establish release approval for those features. [GitHub Releases](/releases/) is the source of publication metadata.

@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node --import tsx scripts/generate.ts && vite --host 0.0.0.0 --port 4321",
-    "build": "tsc --noEmit && node --import tsx scripts/generate.ts && vite build",
+    "dev": "node --import tsx scripts/generate.ts --noindex && vite --host 0.0.0.0 --port 4321",
+    "build": "tsc --noEmit && node --import tsx scripts/generate.ts && vite build && node --import tsx scripts/check-seo.ts",
     "preview": "vite preview --host 0.0.0.0 --port 4321",
     "test": "node --import tsx --test tests/*.test.mjs",
-    "releases:sync": "node scripts/sync-releases.mjs"
+    "releases:sync": "node scripts/sync-releases.mjs",
+    "seo:check": "node --import tsx scripts/check-seo.ts --production"
   },
   "devDependencies": {
     "vite": "^8.3.5",

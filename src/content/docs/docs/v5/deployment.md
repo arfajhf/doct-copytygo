@@ -1,6 +1,6 @@
 ---
 title: "Application deployment"
-description: "Application deployment CopyTyGo v5.0.0; original upstream guide."
+description: "Deploy a CopyTyGo application with production configuration, database checks, durable queues, HTTPS sessions, native builds, and health verification."
 ---
 
 This guide preserves the upstream documentation for technical accuracy.

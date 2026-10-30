@@ -1,6 +1,6 @@
 ---
 title: "Resource generator & security"
-description: "Resource generator & security CopyTyGo v5.0.0; original upstream guide."
+description: "Generate CopyTyGo REST resources with models, controllers, migrations, validation, and private-by-default routes with explicit access rules."
 ---
 
 This guide preserves the upstream documentation for technical accuracy.

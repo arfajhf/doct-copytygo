@@ -1,6 +1,6 @@
 ---
 title: "Database"
-description: "Database for CopyTyGo v5.0.0."
+description: "Configure MySQL or PostgreSQL in CopyTyGo and learn how models, query builders, relationships, transactions, and generated resources fit together."
 ---
 
 CopyTyGo supports **MySQL and PostgreSQL** through `database/sql`. The query builder validates table and column identifiers and supported operators.

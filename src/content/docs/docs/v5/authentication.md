@@ -1,6 +1,6 @@
 ---
 title: "Authentication"
-description: "Authentication CopyTyGo v5.0.0; original upstream guide."
+description: "Set up CopyTyGo authentication with single or multiple roles, TypeScript pages, encrypted sessions, CSRF protection, and independent bearer-token APIs."
 ---
 
 This guide preserves the upstream documentation for technical accuracy.

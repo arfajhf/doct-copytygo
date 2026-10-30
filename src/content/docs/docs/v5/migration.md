@@ -1,6 +1,6 @@
 ---
 title: "Migration"
-description: "Migration for CopyTyGo v5.0.0."
+description: "Create and run CopyTyGo database migrations with the CLI and Studio, inspect migration status, and understand rollback and production safeguards."
 ---
 
 The CLI and Studio share the same migration engine: project source → AST loader → registry → schema blueprint → dialect-specific SQL → migration repository.

@@ -1,3 +1,4 @@
+import { resolveSeoConfig } from "../src/site/seo.ts";
 import { cp, mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -16,11 +17,16 @@ import {
 } from "../src/site/templates.ts";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const output = path.join(root, ".generated");
-export async function generateSite() {
-  const site = new URL(process.env.SITE_URL || "http://localhost:4321");
-  if (!["http:", "https:"].includes(site.protocol))
-    throw new Error("SITE_URL must use http or https");
+export async function generateSite(options: { development?: boolean } = {}) {
+  const output = path.join(
+    root,
+    ".generated",
+    options.development ? "dev" : "build",
+  );
+  const { site, indexable } = resolveSeoConfig(
+    process.env,
+    options.development,
+  );
   const highlighter = await createHighlighter({
     themes: ["github-dark", "github-light"],
     langs: [
@@ -99,6 +105,7 @@ export async function generateSite() {
       body,
       headings,
       site,
+      indexable,
       noindex: page.route === "/404.html",
     });
     const filename =
@@ -124,13 +131,14 @@ export async function generateSite() {
     }
   }
   const home = shell({
-    title: "Go further. Build together.",
+    title: "CopyTyGo: Full-Stack Go & TypeScript Framework",
     description:
       "CopyTyGo is a full-stack Go and TypeScript framework. Explore documentation, the CLI, authentication, databases, background jobs, and Studio.",
     route: "/",
     body: landingContent(code),
     home: true,
     site,
+    indexable,
   });
   await write(path.join(output, "index.html"), home);
   const releases = releaseContent();
@@ -143,9 +151,14 @@ export async function generateSite() {
       route: "/releases/",
       body: releases,
       site,
+      indexable,
       headings: [
         { id: "release-history", text: "Release history", depth: 2 },
-        { id: "versioned-documentation", text: "Versioned documentation", depth: 2 },
+        {
+          id: "versioned-documentation",
+          text: "Versioned documentation",
+          depth: 2,
+        },
       ],
     }),
   );
@@ -160,7 +173,7 @@ export async function generateSite() {
   );
   await write(
     path.join(output, "client.ts"),
-    "import '../src/client/main.ts';\n",
+    "import '../../src/client/main.ts';\n",
   );
   await write(
     path.join(output, "public/search-index.json"),
@@ -168,11 +181,23 @@ export async function generateSite() {
   );
   await write(
     path.join(output, "public/sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((route) => `<url><loc>${e(new URL(route, site).href)}</loc></url>`).join("")}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${(indexable ? routes : []).map((route) => `<url><loc>${e(new URL(route, site).href)}</loc></url>`).join("")}</urlset>`,
   );
   await write(
     path.join(output, "public/robots.txt"),
-    `User-agent: *\nAllow: /\nSitemap: ${new URL("/sitemap.xml", site)}\n`,
+    `User-agent: *\nAllow: /\n${indexable ? `Sitemap: ${new URL("/sitemap.xml", site)}\n` : "# Preview build: pages use noindex; crawling stays allowed so robots can read it.\n"}`,
+  );
+  await write(
+    path.join(output, "public/_redirects"),
+    [
+      "/docs /docs/v5/ 301",
+      "/docs/ /docs/v5/ 301",
+      ...routes.map((route) => `${route}index.html ${route} 301`),
+    ].join("\n") + "\n",
+  );
+  await write(
+    path.join(output, "public/_headers"),
+    `/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/search-index.json\n  Cache-Control: public, max-age=0, must-revalidate\n${indexable ? "" : "/*\n  X-Robots-Tag: noindex, follow\n"}`,
   );
   highlighter.dispose();
   console.log(
@@ -204,4 +229,4 @@ if (
   process.argv[1] &&
   path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
 )
-  await generateSite();
+  await generateSite({ development: process.argv.includes("--noindex") });
